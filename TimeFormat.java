@@ -1,7 +1,7 @@
 // Represents the hh:mm time format using an AM/PM format. 
 public class TimeFormat {
 	private static final int HOURS_AT_A_DAY = 24;
-	private static final int HOURS_AT_HALF_A_DAY = HOURS_AT_A_DAY/2;
+	private static final int HOURS_AT_HALF_A_DAY = HOURS_AT_A_DAY / 2;
 	private static final String AM = "AM";
 	private static final String PM = "PM";
 
@@ -13,11 +13,11 @@ public class TimeFormat {
 		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-		
-		// Swith to 12 hour format
-		String timePeriodSuffix = AM;
+
+		String timePeriodSuffix = (hours >= 12) ? PM : AM;
+
+		// Switch to 12 hour format
 		if (hours >= HOURS_AT_HALF_A_DAY) {
-			timePeriodSuffix = PM;
 			if (hours > HOURS_AT_HALF_A_DAY) {
 				hours = hours - HOURS_AT_HALF_A_DAY;
 			}
